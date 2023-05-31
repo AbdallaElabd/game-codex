@@ -1,8 +1,9 @@
-import classNames from "classnames";
-import { ReactNode } from "react";
-import { Inter } from "next/font/google";
-
 import "../styles/globals.css";
+
+import classNames from "classnames";
+import { Inter } from "next/font/google";
+import { ReactNode } from "react";
+
 import { Logo } from "./logo";
 
 const inter = Inter({ subsets: ["latin"] });
