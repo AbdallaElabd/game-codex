@@ -18,7 +18,7 @@ export default async function Page() {
   );
 }
 
-export const GameCard = ({ game }: { game: Game }) => {
+const GameCard = ({ game }: { game: Game }) => {
   return (
     <div key={game.id} className="flex flex-col gap-2">
       <div className="h-64 w-full overflow-hidden rounded-lg">
