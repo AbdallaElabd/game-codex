@@ -6,31 +6,31 @@ import { Waypoint } from "react-waypoint";
 import { ImageWithPlaceholder } from "@/components/image-with-placeholder";
 import { RatingStars } from "@/components/rating-stars";
 import { Spinner } from "@/components/spinner";
-import { formatDate } from "@/lib/date";
-import { EndpointResponse } from "@/types/endpoint-response";
 import { Game } from "@/types/rawg-types";
+import { formatDate } from "@/utils/date";
 
 export const GamesList = ({
   games,
-  next,
+  nextParams,
 }: {
   games: Game[];
-  next: string | null;
+  nextParams: string | null;
 }) => {
   const [gamesList, setGamesList] = useState(games);
-  const [nextUrl, setNextUrl] = useState(next);
+  const [nextPageParams, setNextPageParams] = useState(nextParams);
   const [isLoading, setIsLoading] = useState(true);
 
   const loadMore = async () => {
-    if (!nextUrl) return;
+    if (!nextPageParams) return;
     try {
       setIsLoading(true);
-      const response = await fetch(nextUrl);
-      const { results, next } = (await response.json()) as EndpointResponse<
-        Game[]
-      >;
-      setGamesList([...gamesList, ...results]);
-      setNextUrl(next);
+      const res = await fetch(`./api/games?${nextPageParams}`);
+      const response: {
+        results: Game[];
+        nextParams: string | null;
+      } = await res.json();
+      setGamesList([...gamesList, ...response.results]);
+      setNextPageParams(response.nextParams);
     } catch (error) {
       console.error(error);
     } finally {
