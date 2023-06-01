@@ -4,7 +4,6 @@ import { useState } from "react";
 import { Waypoint } from "react-waypoint";
 
 import { ImageWithPlaceholder } from "@/components/image-with-placeholder";
-import { LoadMore } from "@/components/load-more";
 import { RatingStars } from "@/components/rating-stars";
 import { Spinner } from "@/components/spinner";
 import { formatDate } from "@/lib/date";

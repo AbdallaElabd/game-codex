@@ -11,7 +11,7 @@ export const Logo = ({ className }: { className?: string }) => {
       </svg>
       <h1 className="flex flex-col bg-gradient-to-b from-slate-50 to-slate-300 bg-clip-text font-sans text-4xl text-transparent">
         <span className="">Game</span>
-        <span>RAWGic</span>
+        <span>Codex</span>
       </h1>
     </div>
   );

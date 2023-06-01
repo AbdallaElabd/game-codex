@@ -9,7 +9,7 @@ import { Logo } from "@/components/logo";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Game RAWGic",
+  title: "Game Codex",
   description: "Search for your favorite games",
 };
 
